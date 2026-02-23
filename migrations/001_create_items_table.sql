@@ -33,3 +33,37 @@ INSERT INTO hive (name, dept, about, dob, dp_id) VALUES
 ('Jennifer Taylor', 'Design', 'Graphic Designer', '1996-04-22', 'dp_0010'),
 ('Christopher Lee', 'Marketing', 'Content Strategist', '1992-01-08', 'dp_0011'),
 ('Amanda White', 'Finance', 'Accountant', '1994-08-19', 'dp_0012');
+
+-- Update department with random city names
+UPDATE hive SET dept = CASE id
+  WHEN 1 THEN 'New York'
+  WHEN 2 THEN 'San Francisco'
+  WHEN 3 THEN 'Los Angeles'
+  WHEN 4 THEN 'Chicago'
+  WHEN 5 THEN 'Houston'
+  WHEN 6 THEN 'Phoenix'
+  WHEN 7 THEN 'Philadelphia'
+  WHEN 8 THEN 'San Antonio'
+  WHEN 9 THEN 'San Diego'
+  WHEN 10 THEN 'Dallas'
+  WHEN 11 THEN 'Austin'
+  WHEN 12 THEN 'Seattle'
+  ELSE dept
+END;
+
+-- Update about with random hobbies (1 or 2 hobbies per person)
+UPDATE hive SET about = CASE id
+  WHEN 1 THEN 'Reading, Hiking'
+  WHEN 2 THEN 'Photography'
+  WHEN 3 THEN 'Cooking, Gaming'
+  WHEN 4 THEN 'Yoga'
+  WHEN 5 THEN 'Painting, Music'
+  WHEN 6 THEN 'Traveling'
+  WHEN 7 THEN 'Swimming, Drawing'
+  WHEN 8 THEN 'Gardening'
+  WHEN 9 THEN 'Dancing, Running'
+  WHEN 10 THEN 'Writing'
+  WHEN 11 THEN 'Cycling, Cooking'
+  WHEN 12 THEN 'Chess'
+  ELSE about
+END;
