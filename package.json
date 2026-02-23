@@ -1,0 +1,32 @@
+{
+  "name": "node-server",
+  "version": "1.0.0",
+  "description": "Modular Node.js API server with component-based architecture",
+  "main": "src/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node scripts/build.js",
+    "diagnose": "node scripts/diagnose.js",
+    "check-structure": "node -e \"const fs=require('fs'); const dirs=['src','src/config','src/components','src/components/the_happy_hive','migrations']; dirs.forEach(d => console.log(d + ':', fs.existsSync(d) ? '✓' : '✗'))\"",
+    "list-files": "node -e \"const fs=require('fs'); const path=require('path'); function list(dir, indent='') { if(!fs.existsSync(dir)) return; fs.readdirSync(dir).slice(0,10).forEach(f => { if(!['.git','node_modules','.vscode'].includes(f)) { console.log(indent + f); if(fs.lstatSync(path.join(dir,f)).isDirectory()) list(path.join(dir,f), indent+'  '); } }); } list('.')\"",
+    "verify-modules": "node -e \"['express','cors','dotenv','mysql2'].forEach(m => console.log(m + ':', require.resolve(m) ? '✓' : '✗'))\" 2>&1 | grep -v node_modules || true"
+  },
+  "keywords": [
+    "api",
+    "server",
+    "express",
+    "modular"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "mysql2": "^3.6.5"
+  },
+  "devDependencies": {}
+}
