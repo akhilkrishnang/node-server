@@ -3,6 +3,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 const { testConnection } = require('./config/database');
+const validateApiKey = require('./middleware/apiKeyAuth');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -20,6 +21,9 @@ app.get('/health', (req, res) => {
 // Component imports
 const theHappyHiveRouter = require('./components/the_happy_hive/routes');
 const spotlightRouter = require('./components/the_happy_hive/spotlight-routes');
+
+// Apply API Key authentication middleware to all /api routes
+app.use('/api/', validateApiKey);
 
 // Register component routes
 app.use('/api/happy-hive', theHappyHiveRouter);
