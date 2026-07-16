@@ -162,11 +162,11 @@ cp .env.example .env
 nano .env
 
 # 5. Test database connection
-mysql -h www.akhilkrishnang.com -u akhilkri_hive_admin -p akhilkri_happy_hive -e "SELECT 1"
+mysql -h www.akhilkri_hang.com -u akhilkri_main_admin -p akhilkri_main_dc -e "SELECT 1"
 # Should return: | 1 |
 
 # 6. Run migrations if needed
-mysql -h www.akhilkrishnang.com -u akhilkri_hive_admin -p < migrations/001_create_items_table.sql
+mysql -h www.akhilkri_hang.com -u akhilkri_main_admin -p < migrations/001_create_items_table.sql
 
 # 7. Start server
 npm start

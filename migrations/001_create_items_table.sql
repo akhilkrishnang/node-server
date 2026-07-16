@@ -1,6 +1,6 @@
 -- Create database if not exists
-CREATE DATABASE IF NOT EXISTS happy_hive;
-USE happy_hive;
+CREATE DATABASE IF NOT EXISTS main_dc;
+USE main_dc;
 
 -- Drop table if exists (for fresh setup)
 DROP TABLE IF EXISTS hive;

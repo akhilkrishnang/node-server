@@ -1,6 +1,6 @@
 -- Migration for spotlight table (002_create_spotlight_table.sql)
 
-USE happy_hive;
+USE main_dc;
 
 -- Create spotlight table
 CREATE TABLE IF NOT EXISTS spotlight (

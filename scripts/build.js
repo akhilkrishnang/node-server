@@ -54,7 +54,7 @@ DB_HOST=your-db-host
 DB_PORT=3306
 DB_USER=your-db-user
 DB_PASSWORD=your-db-password
-DB_NAME=happy_hive
+DB_NAME=main_dc
 DB_CONNECTION_LIMIT=10
 `;
 fs.writeFileSync(path.join(DIST_DIR, '.env.example'), envExample);
@@ -93,7 +93,7 @@ DB_HOST=your-server-host
 DB_PORT=3306
 DB_USER=your-username
 DB_PASSWORD=your-password
-DB_NAME=happy_hive
+DB_NAME=main_dc
 \`\`\`
 
 ### 4. Create Database Schema

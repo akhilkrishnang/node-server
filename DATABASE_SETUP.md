@@ -14,7 +14,7 @@ DB_HOST=localhost          # MySQL server host
 DB_PORT=3306              # MySQL server port (default: 3306)
 DB_USER=root              # MySQL username
 DB_PASSWORD=              # MySQL password
-DB_NAME=happy_hive        # Database name
+DB_NAME=main_dc        # Database name
 DB_CONNECTION_LIMIT=10    # Connection pool limit
 ```
 
@@ -37,8 +37,8 @@ Or connect to MySQL and run:
 
 ```sql
 -- Create database if not exists
-CREATE DATABASE IF NOT EXISTS happy_hive;
-USE happy_hive;
+CREATE DATABASE IF NOT EXISTS main_dc;
+USE main_dc;
 
 -- Drop table if exists (for fresh setup)
 DROP TABLE IF EXISTS items;
@@ -126,10 +126,10 @@ INSERT INTO items (name, dept, about, dob, dp_id) VALUES
 
 ### Backup Database
 ```bash
-mysqldump -u root -p happy_hive > backup.sql
+mysqldump -u root -p main_dc > backup.sql
 ```
 
 ### Restore Database
 ```bash
-mysql -u root -p happy_hive < backup.sql
+mysql -u root -p main_dc < backup.sql
 ```

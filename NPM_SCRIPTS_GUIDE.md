@@ -184,7 +184,7 @@ DB_HOST=your-server-ip
 DB_PORT=3306
 DB_USER=your-username
 DB_PASSWORD=your-password
-DB_NAME=happy_hive
+DB_NAME=main_dc
 ```
 
 3️⃣ **Test database manually:**

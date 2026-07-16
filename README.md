@@ -69,7 +69,7 @@ DB_HOST=localhost
 DB_PORT=3306
 DB_USER=root
 DB_PASSWORD=
-DB_NAME=happy_hive
+DB_NAME=main_dc
 DB_CONNECTION_LIMIT=10
 ```
 
