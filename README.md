@@ -71,9 +71,49 @@ DB_USER=root
 DB_PASSWORD=
 DB_NAME=main_dc
 DB_CONNECTION_LIMIT=10
+
+# CORS Configuration
+# Comma-separated list of allowed origins for cross-origin requests
+CORS_ORIGIN=http://localhost:4200,http://127.0.0.1:4200
+
+# API Key Configuration
+# Comma-separated list of valid API keys for write operations
+API_KEYS=default-hive-key
 ```
 
-See [Database Setup Guide](DATABASE_SETUP.md) for detailed configuration instructions.
+See [.env.example](.env.example) and [Database Setup Guide](DATABASE_SETUP.md) for detailed configuration instructions.
+
+### CORS Configuration
+
+The server is configured to accept cross-origin requests. By default, it allows requests from:
+- `http://localhost:4200` (Angular dev server)
+- `http://127.0.0.1:4200` (Angular dev server alternative)
+
+For production, update the `CORS_ORIGIN` environment variable with your frontend URL(s):
+```
+CORS_ORIGIN=https://thehappyhive.github.io,https://your-domain.com
+```
+
+The server automatically handles browser preflight (OPTIONS) requests and allows all necessary headers including:
+- `Content-Type`
+- `Authorization`
+- `X-Api-Key`
+- `Cache-Control`
+- `Pragma`
+- `Expires`
+
+### API Key Authentication
+
+- **GET requests**: No authentication required
+- **POST, PUT, DELETE requests**: Require `X-Api-Key` header
+
+Provide a valid API key from the `API_KEYS` configuration:
+```bash
+curl -X POST http://localhost:3000/api/happy-hive \
+  -H "Content-Type: application/json" \
+  -H "X-Api-Key: default-hive-key" \
+  -d '{"name":"My Item"}'
+```
 
 ## Running the Server
 
