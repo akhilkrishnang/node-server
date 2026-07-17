@@ -5,6 +5,11 @@
  * Requires X-Api-Key header for POST, PUT, DELETE requests.
  */
 const validateApiKey = (req, res, next) => {
+  // Allow browser preflight requests to pass through without auth
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(204);
+  }
+
   // Allow all GET requests without authentication
   if (req.method === 'GET') {
     return next();
@@ -14,7 +19,7 @@ const validateApiKey = (req, res, next) => {
   const apiKey = req.headers['x-api-key'];
   const validApiKeys = process.env.API_KEYS
     ? process.env.API_KEYS.split(',').map((key) => key.trim())
-    : ['default-hive-key'];
+    : ['default-ak-key'];
 
   if (!apiKey || !validApiKeys.includes(apiKey)) {
     return res.status(401).json({
